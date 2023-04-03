@@ -7,32 +7,67 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/system';
 //@ts-ignore
-import img from '../img/daniel.png';
+import img from '../img/1Scrennshot.png'
+import { FaReact,FaJava } from 'react-icons/fa';
 
-export default function ImgMediaCard() {
+import { SiTypescript, SiMysql, SiSpring, SiMui } from 'react-icons/si'
+import { Project } from '../types';
+
+type Props = {project: Project};
+
+const ImgMediaCard:React.FC<Props> = (props) => {
+
+
+
+
+
+const [summery, setSummery] = React.useState(props.project.summery);
+let cardSummery = summery;
+
+if (cardSummery.length > 190) {
+  cardSummery = cardSummery.slice(0,190) + '...'
+} 
+
+
+
+  const websiteHandler = () => {
+    
+      window.location.href = props.project.url;
+      
+      
+  };
+
+
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', height: '70vh', marginTop: '30px'}}>
     <Card sx={{ maxWidth: '100%', pointerEvents: 'none'}} >
       <CardMedia
         component="img"
         alt="green iguana"
-        height="400"
-        src={img}
+        
+        sx={{ maxWidth: "100%", maxHeight: "100%" }}
+        src={props.project.img}
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          About Me
+        <Typography gutterBottom variant="h5" component="div" >
+        <Button onClick={websiteHandler}  sx={{pointerEvents: 'all', color:'black', fontSize:'20px', fontFamily:'Gill Sans'}}> {props.project.name}</Button>
+          
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        <Typography variant="body2" color="text.secondary" fontFamily='Gill Sans'>
+        {cardSummery}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" sx={{pointerEvents: 'all'}}>Share</Button>
-        <Button size="small" sx={{pointerEvents: 'all'}}>Learn More</Button>
+      <CardActions sx={{marginLeft:'10px', color:'grey'}}>
+      <FaReact size={28}/>
+      <SiTypescript size={26}/>
+      <FaJava size={28}/>
+      <SiMysql size={30}/>
+      <SiSpring size={26}/>
+      <SiMui size={26}/>
       </CardActions>
     </Card>
     </Box>
   );
 }
+
+export default ImgMediaCard;
