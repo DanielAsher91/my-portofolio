@@ -30,11 +30,16 @@ let aboutMe: string = ""
 
 const AboutMe:React.FC<Props> = (props) => {
 
+    const handleButtonClick = () => {
+        const section = document.getElementById('contectMe');
+        section.scrollIntoView({ behavior: 'auto' });
+      };
+
 
     const useStyles = makeStyles()((theme) => {
         return {
             box: {
-                display: 'flex', alignItems: 'center', paddingTop: '100px', justifyContent: 'flex-start'
+                display: 'flex', alignItems: 'center', paddingTop: '100px', justifyContent: 'flex-start', width: '100%'
                 },
              card: {
                 maxWidth: '100%', height: '30   0px', backgroundColor: 'black',
@@ -62,7 +67,7 @@ const AboutMe:React.FC<Props> = (props) => {
           
         </Typography>
      
-        <Typography variant="body2" color="white" fontFamily= 'Monospace' fontSize={14}>
+        <Typography variant="body2" color="white" fontFamily= 'Monospace' fontSize={17}>
         Hi there! I'm Daniel and I'm a beginner Full Stack Developer with a strong foundation in Java,<br/>
          JavaScript, TypeScript, React, and MySQL.<br/>
          I'm passionate about building web applications and creating engaging user experiences.<br/>
@@ -84,8 +89,8 @@ const AboutMe:React.FC<Props> = (props) => {
        
       </CardContent>
       <CardActions sx={{backgroundColor: 'black'}}>
-        <Button className={classes.hireMeButton} variant="outlined" >Hire me</Button>
-        <a href="https://drive.google.com/file/d/1zdhaGYDBYTgcm0LTnp0IzzBcXImO-qC1/view?usp=sharing">
+        <Button className={classes.hireMeButton} variant="outlined" onClick={handleButtonClick} >Hire me</Button>
+        <a href="https://drive.google.com/file/d/1kavNnRzKKPPKIb9ay-XCJA2BoyncrrIl/view?usp=share_link">
         <Button sx={{marginLeft:3}}variant="contained" endIcon={<RememberMeIcon />}>
   Get CV
 </Button>

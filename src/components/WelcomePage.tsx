@@ -1,14 +1,13 @@
-import { type } from "os"
-import React, { useState } from 'react';
-import { Container, Grid, Typography } from "@mui/material";
-import Box from '@mui/material/Box';
+
+import React from 'react';
 import MainHeader from "./MainHeader";
-import AboutMe from "./AboutMe";
-import { width } from "@mui/system";
-import TextField from '@mui/material/TextField';
-import ImgMediaCard from "./ImgMediaCard";
 import Me from "./Me";
 import CarrouselBlog from "./CarrouselBlog";
+import ContectMe from "./ContectMe";
+import { BrowserRouter } from 'react-router-dom';
+import { HashLink } from    "react-router-hash-link" 
+import { Button } from '@mui/material';
+import "./styles.css"
 
 
 
@@ -20,23 +19,23 @@ type Props = {
 const WelcomePage:React.FC<Props> = (props) => {
     
     
+    
 
     return(
-        <>
-        <MainHeader/>
 
-        <Box sx={{ backgroundColor: 'black', color: 'white',width:'100%' }}>
-          
-          <Me/> 
-            
+
+
+        <>
         
-        {/* <Box sx={{display: 'flex', padding: 14,   gap: 2, marginTop: '-10px', position: 'relative'}} >
-  <ImgMediaCard/>
-  <ImgMediaCard/>
-  <ImgMediaCard/>
-</Box> */}
-        </Box>
+
+        
+        <MainHeader/>
+        <Me/>
+        
+        
         <CarrouselBlog/>
+        <ContectMe/>
+        
       
        
       

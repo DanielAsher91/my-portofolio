@@ -8,9 +8,15 @@ const Me:React.FC<Props> = (props) => {
 
 return (
     <>
-    <Box >
+    
+        
+        <Box sx={{ backgroundColor: 'black', color: 'white',width:'100%' }}>
+          
+           
         <AboutMe/>
-    </Box>
+        
+  
+        </Box>
     </>
 )
 
